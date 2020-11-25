@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+class Post(models.Model):
+    username = models.CharField("使用者", max_length=50)

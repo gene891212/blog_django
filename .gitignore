@@ -102,7 +102,7 @@ ENV/
 .mypy_cache/
 
 .DS_Store
-*.sqlite3
+# *.sqlite3
 media/
 *.pyc
 *.db
@@ -112,14 +112,11 @@ media/
 *.out
 *.ini
 *.ipynb
+test.*
 # Ignore Django Migrations in Development if you are working on team
 
 # Only for Development only
 # **/migrations/**
 # !**/migrations
 # !**/migrations/__init__.py
-
-
-
-test.*
 

@@ -1,0 +1,3 @@
+docker run -itd -v $(pwd):/home/user/work \
+                -p 8001:8000 \
+                --name ProjectOfBlog blog_image

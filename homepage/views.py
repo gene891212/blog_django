@@ -7,6 +7,6 @@ from django.views import generic
 
 
 class Homepage(generic.ListView):
-    # model 
+    # model =
     def homepage(request):
         return render(request, 'index.html', context={pic: ''})

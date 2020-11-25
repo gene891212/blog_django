@@ -7,8 +7,8 @@ from datetime import datetime
 
 class Homepage(generic.ListView):
     model = Post
-    now = model.datetime.timestamp
-    hi = datetime.fromtimestamp(now)
+    # now = model.datetime.timestamp
+    # hi = datetime.fromtimestamp(now)
 
     def homepage(request):
         return render(request, 'index.html', context={pic: self.hi})

@@ -8,7 +8,5 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class Homepage(generic.ListView):
     model = Post
-    # def homepage(request):
-    #     return render(request, 'index.html', context={pic: self.hi})
     def get_queryset(self):
         return Post.objects.all().order_by('-date')

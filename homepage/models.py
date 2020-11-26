@@ -6,7 +6,10 @@ class Post(models.Model):
     subtitle = models.TextField('副標', max_length=100, blank=True)
     content = models.TextField('內文')
     date = models.DateField(auto_now_add=True)
-    datetime = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-date']
+
     def __str__(self):
         return self.title
     

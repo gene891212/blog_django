@@ -13,13 +13,9 @@ def sign_up(request):
             return render(request, 'login/register.html', {'form':form})
     else:
         form = RegisterForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'login/register.html', context)
+        return render(request, 'login/register.html', {'form':form})
 
 def sign_in(request):
-    form = LoginForm()
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -28,11 +24,7 @@ def sign_in(request):
         if user is not None:
             login(request, user)
             return redirect('/')
-
-    context = {
-        'form' : form
-    }
-    return render(request, 'login/login.html', context)
+    return render(request, 'login/login.html')
 
 def log_out(request):
     logout(request)

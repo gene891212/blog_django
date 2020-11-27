@@ -11,3 +11,10 @@ class AllPost(generic.ListView):
     template_name = 'view_article/all_post.html'
     def get_queryset(self):
         return Post.objects.all().order_by('-date')
+
+class PostDetailView(generic.DetailView):
+    model = Post
+    def post_detail_view(request, pk):
+        self.model.objects.get(id=pk)
+
+    

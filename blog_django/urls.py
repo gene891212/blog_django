@@ -20,10 +20,13 @@ from django.views.generic import RedirectView
 from django.conf.urls.static import static
 from django.conf import settings
 
+import homepage
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/homepage/')),
     path('homepage/', include('homepage.urls'), name='homepage'),
     path('login/', include('login.urls')),
+    path('all_post/', include('view_article.urls'), name='all-post')
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

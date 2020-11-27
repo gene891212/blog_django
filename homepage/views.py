@@ -9,4 +9,5 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class Homepage(generic.ListView):
     model = Post
     def get_queryset(self):
-        return Post.objects.all().order_by('-date')
+        return Post.objects.all().order_by('-date')[:5]
+

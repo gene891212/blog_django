@@ -20,9 +20,9 @@ class Meta:
 class LoginForm(forms.Form):
     username = forms.CharField(
         label='帳號',
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control', 'aria-label': 'Small', 'aria-describedby': 'inputGroup-sizing-sm'})
     )
-    
+
     password = forms.CharField(
         label="密碼",
         widget=forms.PasswordInput(attrs={'class': 'form-control'})

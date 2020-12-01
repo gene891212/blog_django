@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block page_header %}
+<header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Create Posts</h1>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock page_header %}
+
+
+{% block main_content %}
+
+<div class="post-preview">
+    <form>
+        <div class="input-group mb-3">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">1</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Title" aria-label="Username"
+                    aria-describedby="addon-wrapping">
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">2</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Subtitle" aria-label="Username"
+                    aria-describedby="addon-wrapping">
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01">3</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02"/>
+                <label class="custom-file-label" for="inputGroupFile02">Header Image</label>
+            </div>
+            <script>
+                $('#inputGroupFile02').on('change',function(){
+                    //get the file name
+                    var fileName = $(this).val();
+                    //replace the "Choose a file" label
+                    $(this).next('.custom-file-label').html(fileName);
+                })
+            </script>
+        </div>
+
+        <hr>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Content</label>
+            <textarea id="test"></textarea>
+        </div>
+        
+        <hr>
+        <input class="btn btn-primary float-right" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock main_content %}

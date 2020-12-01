@@ -28,6 +28,6 @@ urlpatterns = [
     path('homepage/', include('homepage.urls'), name='homepage'),
     path('login/', include('login.urls')),
     path('all_posts/', include('view_article.urls'), name='all-post'),
-    path('creat_post/', include('write_article.urls'), name='creat-article')
+    path('create_post/', include('write_article.urls'), name='create-article')
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

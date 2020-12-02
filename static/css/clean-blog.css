@@ -408,3 +408,7 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+
+.CodeMirror-scroll {
+  font-family: 'Times New Roman', serif;
+}

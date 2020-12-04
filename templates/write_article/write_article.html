@@ -22,14 +22,15 @@
 {% block main_content %}
 
 <div class="post-preview">
-    <form>
+    <form action="" method="post">
+        {% csrf_token %}
         <div class="input-group mb-3">
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text">1</span>
                 </div>
                 <input type="text" class="form-control" placeholder="Title" aria-label="Username"
-                    aria-describedby="addon-wrapping">
+                    aria-describedby="addon-wrapping" name="title" required>
             </div>
         </div>
 
@@ -39,7 +40,7 @@
                     <span class="input-group-text">2</span>
                 </div>
                 <input type="text" class="form-control" placeholder="Subtitle" aria-label="Username"
-                    aria-describedby="addon-wrapping">
+                    aria-describedby="addon-wrapping" name="subtitle">
             </div>
         </div>
 
@@ -63,7 +64,7 @@
         <hr>
         <div class="form-group">
             <textarea id="content" class='test'></textarea>
-            <textarea id="save" hidden ></textarea>
+            <textarea id="save" hidden name="content" required></textarea>
         </div>
         <hr>
         <input class="btn btn-primary float-right" type="submit" value="Submit &rarr;">

@@ -22,14 +22,15 @@
 {% block main_content %}
 
 <div class="post-preview">
-    <form>
+    <form action="" method="post">
+        {% csrf_token %}
         <div class="input-group mb-3">
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text">1</span>
                 </div>
                 <input type="text" class="form-control" placeholder="Title" aria-label="Username"
-                    aria-describedby="addon-wrapping">
+                    aria-describedby="addon-wrapping" name="title" required>
             </div>
         </div>
 
@@ -39,7 +40,7 @@
                     <span class="input-group-text">2</span>
                 </div>
                 <input type="text" class="form-control" placeholder="Subtitle" aria-label="Username"
-                    aria-describedby="addon-wrapping">
+                    aria-describedby="addon-wrapping" name="subtitle">
             </div>
         </div>
 
@@ -53,28 +54,35 @@
             </div>
             <script>
                 $('#inputGroupFile02').on('change',function(){
-                    //get the file name
                     var fileName = $(this).val();
-                    //replace the "Choose a file" label
-                    $(this).next('.custom-file-label').html(fileName);
+                    edit = fileName.split('\\')
+                    $(this).next('.custom-file-label').html(edit[edit.length - 1]);
                 })
             </script>
         </div>
 
         <hr>
         <div class="form-group">
-            <label for="formGroupExampleInput">Content</label>
             <textarea id="content" class='test'></textarea>
-            <textarea id="save" hidden ></textarea>
+            <textarea id="save" hidden name="content" required></textarea>
         </div>
         <hr>
-        <input class="btn btn-primary float-right" type="submit" value="Submit">
+        <input class="btn btn-primary float-right" type="submit" value="Submit &rarr;">
     </form>
 </div>
 <script>
+    var toolbar_br = {
+        name: "br",
+        title: "New line",
+        className: "fa fa-level-down fa-rotate-90",
+        action: function(editor) {
+            var cm = editor.codemirror;
+			cm.replaceSelection("<br>");
+        }
+    };
     var simplemde = new SimpleMDE({
         element: document.getElementById("content"),
-        autoDownloadFontAwesome: true,
+        placeholder: "Type your content here...",
         spellChecker: false,
         status: false,
         tabSize: 4,
@@ -85,10 +93,10 @@
         // },
         toolbar: [
             "heading", "bold", "italic", "strikethrough", "|",
-            "quote", "code", "table", "horizontal-rule", "|",
+            toolbar_br, "code", "table", "horizontal-rule", "|",
             "ordered-list", "unordered-list", "quote", "|",
             "link", "image",  "|",
-            "preview"
+            "preview", "guide"
         ],
     });
     simplemde.codemirror.on("change", function(){

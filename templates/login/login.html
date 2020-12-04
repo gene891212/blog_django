@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 {% load static %}
 
+
 {% block page_header %}
     <header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
         <div class="overlay"></div>
@@ -8,17 +9,22 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
-                        <h1>Django AuthDev HomPage</h1>
-                        {% if form.errors %}
+                        <h1>Django Login</h1>
+                        <br>
+                        {% comment %} {% if form.errors %}
                             <p>帳號或密碼不符合，請再試一次。</p>
-                        {% endif %}
+                        {% endif %} {% endcomment %}
 
                         <form action="" method="post">
                             {% csrf_token %}
-                            <input class="{% static 'login/css/login.css' %}", type="text", name='username'>
-                            <input type="password", name='password'>
                             <div>
-                                <input type="submit" value="登入" />
+                                <input class="login_text" type="text" name='username' id="username" placeholder='Username' >
+                            </div>
+                            <div>
+                                <input class="login_text" type="password" name='password' id="password" placeholder='Password'>
+                            </div>
+                            <div>
+                                <input name = "login_button" type="submit" value = "登入" onclick="login()">
                             </div>
                             <p>還沒有帳號嗎? <a href="{% url 'register' %}">註冊</a></p>
                         </form>
@@ -27,5 +33,4 @@
             </div>
         </div>
     </header>
-
 {% endblock  %}

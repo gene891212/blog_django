@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/homepage/')),
     path('homepage/', include('homepage.urls'), name='homepage'),
-    path('login/', include('login.urls')),
+    path('login/', include('login.urls'), name='login'),
     path('all_posts/', include('view_article.urls'), name='all-post'),
     path('create_post/', include('write_article.urls'), name='create-article')
 

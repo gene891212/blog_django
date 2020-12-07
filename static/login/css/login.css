@@ -1,0 +1,43 @@
+.login_text
+{
+    transition-duration: 0.4s;
+    width: 200px;
+    height: 25px;
+    background: none;
+    box-sizing: border-box;
+    border: 3px solid;
+    border-color: #e92cb9;
+    border-radius: 10px;
+    color: rgb(30, 184, 211);
+    text-indent: 10px;
+    position: relative;
+    margin: 8px;
+}
+
+.login_text:focus
+{
+    font-size: large;
+    width: 280px;
+    height: 35px;
+    font-size: 25px;
+}
+
+.button
+{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color:black;
+    color: #e92cb9;
+    border: 2px solid #e92cb9;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+}
+
+.button:hover
+{
+    background-color: red; 
+    color: #2980b9;
+    font-size: 20px;
+}

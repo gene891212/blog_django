@@ -1,0 +1,5 @@
+docker build . -t django_env
+
+docker run -itd -v $(pwd):/work \
+                -p 8001:8000 \
+                --name ProjectOfBlog django_env

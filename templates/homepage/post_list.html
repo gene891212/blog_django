@@ -18,16 +18,18 @@
     </header>
 {% endblock page_header %}
 
+
+{% load capitalize_title %}
 {% block main_content %}
     {% if post_list %}
         {% for post in post_list %}
             <div class="post-preview">
                 <a href="{{ post.id }}">
                     <h2 class="post-title">
-                        {{ post.title }}
+                        {{ post.title|capitalize }}
                     </h2>
                     <h3 class="post-subtitle">
-                        {{ post.subtitle }}
+                        {{ post.subtitle|capitalize }}
                     </h3>
                 </a>
                 <p class="post-meta">Posted by

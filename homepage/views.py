@@ -3,7 +3,7 @@ from django.views import generic
 from .models import *
 from datetime import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django import template
 # Create your views here.
 
 class Homepage(generic.ListView):

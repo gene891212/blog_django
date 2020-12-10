@@ -1,5 +1,21 @@
 # blog_djanog
 ## Usage
+- Pipenv
+1. Download Pipenv
+```sh
+pip install pipenv
+```
+2. Build environment
+```sh
+pipenv sync
+```
+3. Run django server
+```sh
+python manage.py runserver 8001
+```
+
+- Docker
+
 1. Download Docker
 2. Edit Dockerfile
 

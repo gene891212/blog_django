@@ -21,8 +21,8 @@
 
 {% load capitalize_title %}
 {% block main_content %}
-    {% if post_list %}
-        {% for post in post_list %}
+    {% if page_obj %}
+        {% for post in page_obj %}
             <div class="post-preview">
                 <a href="{{ post.id }}">
                     <h2 class="post-title">
@@ -40,8 +40,26 @@
             <hr>
         {% endfor %}
         <!-- Pager -->
-        <div class="clearfix">
-            <a class="btn btn-primary float-right" href="">Older Posts &rarr;</a>
+        <div class="row">
+            <div class="col text-center">
+                <div class="pagination">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo;</a>
+                    {% endif %}
+
+                    {% for i in paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <a href="?page={{ i }}" class="active">{{ i }}</a>
+                        {% else %}
+                            <a href="?page={{ i }}">{{ i }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     {% else %}
             <div class="post-preview">
@@ -51,5 +69,4 @@
                     </h2>
             </div>
     {% endif %}
-
 {% endblock main_content %}

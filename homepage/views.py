@@ -10,8 +10,9 @@ import markdown
 
 class Homepage(generic.ListView):
     model = Post
-    def get_queryset(self):
-        return Post.objects.all().order_by('-date')[:5]
+    paginate_by = 5
+    # def get_queryset(self):
+    #     return Post.objects.all().order_by('-date')[:5]
 
 class PostDetailView(generic.DetailView):
     model = Post

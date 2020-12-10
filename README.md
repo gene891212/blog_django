@@ -5,13 +5,21 @@
 ```sh
 pip install pipenv
 ```
+
 2. Build environment
 ```sh
 pipenv sync
 ```
+
+Add environment variable, you can go to [Djecrety](https://djecrety.ir) get a secret key
+```sh
+touch .env
+echo 'DJANGO_SECRET_KEY=YOUR_SECRET_KEY' > .env
+```
+
 3. Run django server
 ```sh
-python manage.py runserver 8001
+pipenv run python manage.py runserver 8001
 ```
 
 - Docker

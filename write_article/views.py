@@ -9,15 +9,12 @@ def create_post(request):
     form = PostModelForm()
 
     if request.method == 'POST':
-        form = PostModelForm(request.POST)
-        print(request.POST)
+        form = PostModelForm(request.POST, request.FILES)
+        print(request.FILES)
         if form.is_valid():
             form.save()
             return redirect('/')
-
-    return render(request, 'write_article/write_article.html', {'form': form})
-
-# def test(request):
-#     form = PostModelForm()
-
-#     return render(request, 'test2.html', {'form': form})
+    context = {
+        'form': form,
+    }
+    return render(request, 'write_article/write_article.html', context)

@@ -23,14 +23,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="{% static 'write_article/js/write_article.js' %}"></script>
-    <form action="" method="post">
+
+    <form action="" enctype="multipart/form-data" method="post">
         {% csrf_token %}
-<input type="text" name="hi">
 
         <div class="input-group mb-3">
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">1</span>
+                    <span class="input-group-text">username</span>
+                </div>
+                {{ form.username }}
+                <script>$("#id_username").val("{{ user.username }}")</script>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">title</span>
                 </div>
                 {{ form.title }}
             </div>
@@ -39,7 +49,7 @@
         <div class="input-group mb-3">
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">2</span>
+                    <span class="input-group-text">subtitle</span>
                 </div>
                 {{ form.subtitle }}
             </div>
@@ -47,11 +57,11 @@
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupFileAddon01">3</span>
+                <span class="input-group-text" id="inputGroupFileAddon01">Header image</span>
             </div>
             <div class="custom-file">
                 {{ form.image }}
-                <label class="custom-file-label" for="inputGroupFile02">Header Image</label>
+                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
             </div>
         </div>
 

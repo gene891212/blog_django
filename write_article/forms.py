@@ -5,8 +5,9 @@ class PostModelForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'subtitle', 'image', 'content']
+        fields = ['username', 'title', 'subtitle', 'image', 'content']
         widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control', 'disabled': ''}),
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title'}),
             'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitle'}),
             'image': forms.FileInput(attrs={'class': 'custom-file-input'}),

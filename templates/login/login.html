@@ -1,6 +1,8 @@
 {% extends 'index.html' %}
 {% load static %}
 
+{% block login %}
+{% endblock login %}
 
 {% block page_header %}
     <header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
@@ -24,7 +26,7 @@
                                 <input class="login_text" type="password" name='password' id="password" placeholder='Password'>
                             </div>
                             <div>
-                                <input name = "login_button" type="submit" value = "登入" onclick="login()">
+                                <input name = "login_button" type="submit" value = "登入" onclick="login">
                             </div>
                             <p>還沒有帳號嗎? <a href="{% url 'register' %}">註冊</a></p>
                         </form>

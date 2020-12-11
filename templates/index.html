@@ -23,9 +23,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-
     <link rel="stylesheet" href="{% static 'css/clean-blog.css' %}">
     <link rel="stylesheet" href="{% static 'login/css/login.css' %}">
     <link rel="stylesheet" href="{% static 'homepage/content.css' %}">
@@ -117,13 +114,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'homepage' %}">Home</a>
                 </li>
-                <li class="nav-item">
-                    {% if user.is_authenticated %}
-                        <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} </a>
-                    {% else %}
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    {% endif %}
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'create_post' %}">New Posts</a>
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        </div>
+                    </li>
+                {% else %}
+                    {% block login %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                    {% endblock login %}
+
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -189,7 +200,7 @@
 
 
 <!-- Custom scripts for this template -->
-<script src="{% static 'js/clean-blog.min.js' %}"></script>
+{% comment %} <script src="{% static 'js/clean-blog.min.js' %}"></script> {% endcomment %}
 
 
 </body>

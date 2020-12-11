@@ -5,3 +5,4 @@ Markdown==3.3.3
 pytz==2020.4
 sqlparse==0.4.1
 zipp==3.4.0
+Pillow==8.0.1

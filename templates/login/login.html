@@ -1,8 +1,6 @@
 {% extends 'index.html' %}
 {% load static %}
 
-{% block login %}
-{% endblock login %}
 
 {% block page_header %}
     <header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
@@ -12,23 +10,25 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
                         <h1>Django Login</h1>
-                        <br>
-                        {% comment %} {% if form.errors %}
-                            <p>帳號或密碼不符合，請再試一次。</p>
-                        {% endif %} {% endcomment %}
-
-                        <form action="" method="post">
+                        <div>
+                        <p style="font-size:20px"> {{ error }} </p>
+                        </div>
+                        <form style="font-size:15px" action="" method="post">
                             {% csrf_token %}
-                            <div>
+                            <table class="box">
+                                {{ form }}
+                            </table>
+                            {% comment %} <div>
                                 <input class="login_text" type="text" name='username' id="username" placeholder='Username' >
                             </div>
                             <div>
                                 <input class="login_text" type="password" name='password' id="password" placeholder='Password'>
                             </div>
                             <div>
-                                <input name = "login_button" type="submit" value = "登入" onclick="login">
-                            </div>
-                            <p>還沒有帳號嗎? <a href="{% url 'register' %}">註冊</a></p>
+                                <input name = "login_button" type="submit" value = "登入" onclick="login()">
+                            </div> {% endcomment %}
+                            <input class="btn-success" type="submit" value="確認" />
+                            <p style="font-size:20px">還沒有帳號嗎？ <a href="{% url 'register' %}">註冊</a></p>
                         </form>
                     </div>
                 </div>

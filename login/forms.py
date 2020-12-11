@@ -23,28 +23,18 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ('username', 'password1', 'password2')
 
-# class RegisterForm(UserCreationForm):
-#     username = forms.CharField(
-#         label='帳號',
-#         widget=forms.TextInput()
-#     )
+class LoginForm(forms.ModelForm):
 
-#     email = forms.EmailField(
-#         label="電子郵件",
-#         widget=forms.EmailInput(),
-#     )
+    username = forms.CharField(
+        label='',
+        widget=forms.TextInput(attrs={'class': 'login_text', 'placeholder': 'Username'})
+    )
 
-# class Meta:
-#     model = User
-#     fields = ('username', 'email')
+    password = forms.CharField(
+        label="",
+        widget=forms.PasswordInput(attrs={'class': 'login_text', 'placeholder': 'Password'})
+    )
 
-# class LoginForm(forms.Form):
-#     username = forms.CharField(
-#         label='帳號',
-#         widget=forms.TextInput(attrs={'class': 'form-control'})
-#     )
-
-#     password = forms.CharField(
-#         label="密碼",
-#         widget=forms.PasswordInput(attrs={'class': 'form-control'})
-#     )
+    class Meta:
+        model = User
+        fields = ('username', 'password')

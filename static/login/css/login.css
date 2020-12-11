@@ -1,6 +1,6 @@
 .login_text
 {
-    transition-duration: 0.4s;
+    transition-duration: 0.2s;
     width: 200px;
     height: 25px;
     background: none;
@@ -22,8 +22,7 @@
     font-size: 25px;
 }
 
-.button
-{
+input[class="btn-success"]{
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     background-color:black;
@@ -31,13 +30,16 @@
     border: 2px solid #e92cb9;
     border-radius: 10px;
     width: 100px;
-    height: 30px;
     margin: 5px;
 }
 
-.button:hover
-{
-    background-color: red; 
+input[class="btn-success"]:hover{
+    background-color: black; 
     color: #2980b9;
-    font-size: 20px;
+}
+
+table[class="box"]{
+    height: 100px;
+    border: 1px;
+    margin: auto;
 }

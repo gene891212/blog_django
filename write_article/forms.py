@@ -7,7 +7,7 @@ class PostModelForm(forms.ModelForm):
         model = Post
         fields = ['username', 'title', 'subtitle', 'image', 'content']
         widgets = {
-            'username': forms.TextInput(attrs={'class': 'form-control', 'disabled': ''}),
+            'username': forms.TextInput(attrs={'hidden': ''}),
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title'}),
             'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitle'}),
             'image': forms.FileInput(attrs={'class': 'custom-file-input'}),

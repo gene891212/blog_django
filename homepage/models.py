@@ -6,7 +6,7 @@ class Post(models.Model):
     subtitle = models.CharField('副標', max_length=100, blank=True)
     content = models.TextField('內文')
     date = models.DateField(auto_now_add=True)
-    image = models.ImageField(upload_to='static/upload_image/',default=None, blank=True)
+    image = models.ImageField(upload_to='static/upload_image/', blank=True)
 
     class Meta:
         ordering = ['date']

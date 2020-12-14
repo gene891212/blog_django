@@ -24,7 +24,7 @@
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="{% static 'write_article/js/write_article.js' %}"></script>
 
-    <form action="" enctype="multipart/form-data" method="post">
+    <form action="" enctype="multipart/form-data" method="post" autocomplete="off">
         {% csrf_token %}
 
         <div class="input-group mb-3">
@@ -68,7 +68,6 @@
 
         <hr>
         <div class="form-group">
-            <textarea id="content" class='test'></textarea>
             {{ form.content }}
         </div>
         <hr>

@@ -10,16 +10,11 @@ $(document).ready(function(){
     };
     
     var simplemde = new SimpleMDE({
-        element: document.getElementById("content"),
+        element: $('#id_content').html(),
         placeholder: "Type your content here...",
         spellChecker: false,
         status: false,
         tabSize: 4,
-        // autosave: {
-        //     enabled: true,
-        //     uniqueId: "MyUniqueID",
-        //     delay: 1000,
-        // },
         toolbar: [
             "heading", "bold", "italic", "strikethrough", "|",
             toolbar_br, "code", "table", "horizontal-rule", "|",
@@ -30,7 +25,7 @@ $(document).ready(function(){
     });
 
     simplemde.codemirror.on("change", function(){
-        document.getElementById('id_content').value = simplemde.value();
+        $('#id_content').val(simplemde.value())
     });
 
     $('#id_image').on('change',function(){

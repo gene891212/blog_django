@@ -33,5 +33,11 @@ $(document).ready(function(){
         edit = fileName.split('\\')
         $(this).next('.custom-file-label').html(edit[edit.length - 1])
     })
+
+    $("input[type='submit']").on('click',function(){
+        if ($('#id_content').val() == ''){
+            $('#error_msg').html('<div class="alert alert-danger" role="alert">Content can\'t not be blank.</div>')
+        }
+    })
 })
 

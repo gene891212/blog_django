@@ -11,5 +11,4 @@ class PostModelForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title'}),
             'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subtitle'}),
             'image': forms.FileInput(attrs={'class': 'custom-file-input'}),
-            'content': forms.Textarea(attrs={'': ''})
         }

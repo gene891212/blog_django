@@ -19,7 +19,9 @@ echo 'DJANGO_SECRET_KEY=YOUR_SECRET_KEY' > .env
 
 3. Run django server
 ```sh
-pipenv run python manage.py runserver 8001
+pipenv run python manage.py makemigrations
+pipenv run python manage.py migrate
+pipenv run python manage.py runserver 0.0.0.0:8001
 ```
 
 - Docker

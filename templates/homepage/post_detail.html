@@ -24,6 +24,8 @@
 
 
 {% block main_content %}
+<link rel="stylesheet" href="{% static 'homepage/content.css' %}">
+
 <div class="markdown-body">
     {{ post.content|safe }}
 </div>

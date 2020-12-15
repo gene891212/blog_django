@@ -21,6 +21,8 @@
 
 {% load capitalize_title %}
 {% block main_content %}
+<link rel="stylesheet" href="{% static 'homepage/pagination.css' %}">
+
     {% if page_obj %}
         {% for post in page_obj %}
             <div class="post-preview">

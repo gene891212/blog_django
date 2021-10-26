@@ -11,7 +11,7 @@ import markdown
 
 class Homepage(generic.ListView):
     model = Post
-    paginate_by = 5
+    paginate_by = 30
     ordering = ['-date', '-id']
 
 

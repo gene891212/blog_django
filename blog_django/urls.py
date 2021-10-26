@@ -27,6 +27,7 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/homepage/')),
     path('homepage/', include('homepage.urls'), name='homepage'),
     path('login/', include('login.urls'), name='login'),
-    path('create_post/', include('write_article.urls'), name='create-article')
+    path('create_post/', include('write_article.urls'), name='create-article'),
+    path('profile/', include('persional_page.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

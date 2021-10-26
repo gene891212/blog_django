@@ -24,6 +24,10 @@ pipenv run python manage.py migrate
 pipenv run python manage.py runserver 0.0.0.0:8001
 ```
 
+4. View site in your browser
+
+Entering `http://localhost:8001` in your local browser
+
 - Docker
 
 1. Download Docker
